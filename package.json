@@ -21,7 +21,7 @@
   "scripts": {
     "watch:css": "postcss --watch tailwindcss/style.css -o src/assets/css/style.css",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node -r dotenv/config ./node_modules/.bin/react-scripts build dotenv_config_path=.env.production",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
