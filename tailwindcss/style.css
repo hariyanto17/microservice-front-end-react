@@ -1,3 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.on-light circle, .on-dark circle {
+  @apply .fill-orange-500
+}
+
+.on-light path {
+  @apply .fill-gray-900
+}
+
+.on-dark path {
+  @apply .fill-white
+}
+
+.modal-close {
+  @apply .absolute .right-0 .cursor-pointer .inline-block;
+  width: 30px;
+  height: 30px;
+}
+
+.modal-close::before,
+.modal-close::after {
+  @apply .absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 2px;
+  content: "";
+  background-color: black;
+  margin-left: -25%;
+}
+
+.modal-close::before {
+  transform: rotate(45deg);
+}
+.modal-close::after {
+  transform: rotate(-45deg);
+}
+
+.overlay {
+  @apply .transition-all .duration-500;
+}
+.overlay-enter {
+  opacity: 0;
+}
+.overlay-enter-active {
+  opacity: 1;
+}
+.overlay-exit {
+  opacity: 1;
+}
+.overlay-exit-active {
+  opacity: 0;
+}
+.overlay-enter-done {
+  opacity: 1;
+}
+
+.video-wrapper {
+  @apply .absolute .inset-0 .z-0;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+.video-wrapper iframe {
+  @apply .absolute .top-0 .left-0 .w-full .h-full;
+}
+
+.meta-price {
+  @apply .fixed .bottom-0;
+  transition: all ease-in-out 0.45s;
+  box-shadow: 0px -8px 15px rgba(0, 0, 0, 0.05);
+}
+
+.meta-price-enter {
+  opacity: 0;
+  bottom: -100%;
+}
+.meta-price-enter-active {
+  opacity: 1;
+  bottom: 0;
+}
+.meta-price-exit {
+  opacity: 1;
+  bottom: 0;
+}
+.meta-price-exit-active {
+  opacity: 0;
+  bottom: -100%;
+}
+.meta-price-enter-done {
+  @apply .bottom-0 .opacity-100 .fixed;
+}
+
+
+.link-wrapped:before {
+  @apply .cursor-pointer .z-10 .inset-0 .absolute;
+  content: "";
+}
+
+
+.header-clipping {
+  @apply .relative;
+  height: 630px;
+}
+
+.header-clipping:before {
+  @apply .w-full .bg-indigo-900 .inset-0 .absolute;
+  content: "";
+  height: 648px;
+  clip-path: polygon(0 0, 100% 0, 100% 86%, 0% 100%);
+}
+
+.header-clipping .container {
+  @apply .relative;
+  z-index: 3;
+}
+
+.header-clipping .sunshine {
+  @apply .absolute .top-0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 515px;
+  height: 90%;
+  opacity: 0.8;
+  clip-path: polygon(46% 0%, 82% 0%, 67% 100%, 0% 100%);
+  background: transparent linear-gradient(130.09deg, #3d47bd 0%, #2e37a4 50.8%);
+}
+
+.item figure.item-image {
+  position: relative;
+  perspective: 10000px;
+}
+
+.item figure.item-image:before {
+  content: "";
+  @apply .absolute .inset-0 .bg-indigo-900 .opacity-0 .transition-all .duration-200;
+}
+
+.item:hover figure.item-image:before {
+  @apply .opacity-75;
+}
+
+.item figure.item-image svg.icon {
+  content: "";
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-50%) rotateX(-45deg);
+  @apply .transition-all .duration-300;
+}
+
+.item figure.item-image svg.icon circle {
+  @apply .fill-orange-500;
+}
+
+.item:hover figure.item-image svg.icon {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-50%) rotateX(0deg);
+}
+
+.card {
+  @apply border-gray-200 .h-full p-6 border relative;
+}
+
+.card svg {
+  @apply fill-gray-600;
+}
+
+.card:hover svg {
+  @apply fill-white;
+}
+
+.card:hover {
+  @apply bg-indigo-700 .border-indigo-700;
+  box-shadow: 0px 6px 15px rgba(77,85,188,0.4)
+}
+
+.card .card-meta h4 {
+  @apply text-gray-900;
+}
+
+.card:hover .card-meta h4 {
+  @apply text-white;
+}
+
+.card .card-meta h4 {
+  @apply text-gray-600;
+}
+
+.card:hover .card-meta h4 {
+  @apply text-indigo-400;
+}
+
+.accordion-item {
+  @apply .transition-all .duration-300;
+}
+.accordion-item-enter {
+  opacity: 0;
+}
+.accordion-item-enter-active {
+  opacity: 1;
+}
+.accordion-item-exit {
+  opacity: 1;
+}
+.accordion-item-exit-active {
+  opacity: 0;
+}
+
+svg#svg-star {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -9999px;
+  top: -9999px;
+}
+.stars {
+  @apply .relative .inline-flex;
+  min-width: 200px;
+}
+
+.stars .star {
+  @apply .absolute;
+  clip-path: url(#star);
+}
+
+.stars .star:not(.placeholder) {
+  z-index: 2;
+  @apply .bg-yellow-400;
+}
+
+.stars .star.placeholder {
+  z-index: 1;
+  @apply .bg-gray-200;
+}
