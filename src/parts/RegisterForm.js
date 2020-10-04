@@ -5,6 +5,9 @@ import { useDispatch } from "react-redux";
 import users from 'constants/api/Users'
 
 import  useForm  from "helpers/hooks/useForm";
+import Select from 'components/Form/Select';
+import fieldErrors from 'helpers/fieldErrors';
+import Input from 'components/Form';
 
 function RegisterForm({history}) {
     const dispatch = useDispatch()
@@ -16,6 +19,8 @@ function RegisterForm({history}) {
         profession: "",
         otherProfession: ""
     });
+
+    
 
     const [errors, setErrors] = useState(null)
     
@@ -29,12 +34,8 @@ function RegisterForm({history}) {
         })
     }
 
-    const fieldErrors = 
-    typeof errors === "object" && 
-    errors?.reduce((listErrors, error) => {
-        if(error?.field) listErrors[error.field] = error;
-        return listErrors;
-    },{})
+    const ERRORS = fieldErrors(errors)
+
 
     return (
         <div className="flex justify-center pb-24">
@@ -44,32 +45,56 @@ function RegisterForm({history}) {
                     Anywhere
                 </h1>
                 <form onSubmit={submit} >
-                    <div className="flex flex-col mb-4" >
-                        <label htmlFor="email" className="text-lg mb-2">Email Address</label>
-                        <input
-                            name="email"
-                            type="email"
-                            className="bg-white focus:line-none border w-full px-6 py-3 border-gray-600 focus:border-teal-500"
-                            placeholder="Your email address"
-                            onChange={setState}
-                            value={email}
-                        />
-                    </div>
-                    <div className="flex flex-col mb-4" >
-                        <label htmlFor="password" className="text-lg mb-2">Password</label>
-                        <input
-                            name="password"
-                            type="password"
-                            className="bg-white focus:line-none border w-full px-6 py-3 border-gray-600 focus:border-teal-500"
-                            placeholder="Your password address"
-                            onChange={setState}
-                            value={password}
-                        />
-                    </div>
+                    <Input
+                     type="text"
+                     value={name}
+                     error={ERRORS?.name?.message}
+                     name="name"
+                     onChange= {setState}
+                     placeholder="Your Name"
+                     labelName="Full Name"
+                    />
+                    <Input
+                     type="email"
+                     value={email}
+                     error={ERRORS?.email?.message}
+                     name="email"
+                     onChange= {setState}
+                     placeholder="Your Email Address"
+                     labelName="Email Address"
+                    />
+                    <Input
+                     type="password"
+                     value={password}
+                     error={ERRORS?.password?.message}
+                     name="password"
+                     onChange= {setState}
+                     placeholder="Your Password"
+                     labelName="Password"
+                    />
+                    <Select labelName="Occupation" name="profession" fallbackText="select your focus" onClick={setState} >
+                        <option value="">Select Your Focus</option>
+                        <option value="Web Desainer">Web Desainer</option>
+                        <option value="Frontend Developer">Frontend Developer</option>
+                        <option value="backend Developer">backend Developer</option>
+                        <option value="others">others</option>
+                    </Select>
+                    {
+                        profession === "others" && (
+                            <Input
+                             type="text"
+                             value={otherProfession}
+                             name="otherProfession"
+                             onChange= {setState}
+                             placeholder="Your Profession"
+                             labelName="Other's Occupation"
+                            />
+                        )
+                    }
                     <button 
                         type="submit"
                         className="bg-orange-500 hover:bg-orange-400 transition-all duration-200 focus:outline-none shadow-inner text-white px-6 py-3 mt-4 w-full "
-                        >Daftar Now
+                        >Daftar
                     </button>
                 </form>
             </div>  
@@ -83,8 +108,8 @@ function RegisterForm({history}) {
                     ></div>
                     <div className="absolute w-full h-full -mb-8 -ml-8">
                         <img
-                        src="assets/images/tamara.jpg"
-                        alt="Mbak Alyssa Cakep euy"
+                        src="assets/images/james.jpg"
+                        alt="Mbak tamara Cakep euy"
                         />
                     </div>
                     <div
@@ -92,9 +117,9 @@ function RegisterForm({history}) {
                         style={{ width: 290 }}
                     >
                         <p className="text-gray-900 mb-2">
-                        Semua sudah terarah dengan baik dan perlu ikuti saja
+                        Semua materi terstruktur baik dan mentor yang sangat lihai
                         </p>
-                        <span className="text-gray-600">Tamara, UX Designer</span>
+                        <span className="text-gray-600">James, Apps Developer</span>
                     </div>
                 </div>
             </div>          
