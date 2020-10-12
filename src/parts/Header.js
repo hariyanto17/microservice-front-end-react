@@ -8,8 +8,8 @@ const Header = ({onLight, location}) => {
     const linkCOlor = onLight ? "text-gray-900" : "text-white"
 
 
-    const linkCTA = location.pathname.indexOf("/login") > -1 ? `${process.env.NEXT_PUBLIC_MEMBERPAGE_URL}/register`
-                    :`${process.env.NEXT_PUBLIC_MEMBERPAGE_URL}/login`
+    const linkCTA = location.pathname.indexOf("/login") > -1 ? `/register`
+                    :`/login`
     const textCTA = location.pathname.indexOf("/login") > -1 ? "daftar" : "Masuk"
 
     return (
@@ -19,25 +19,25 @@ const Header = ({onLight, location}) => {
             </div>
             <ul className="flex">
                 <li>
-                    <Link href="/" ><a className={[linkCOlor, "text-white hover:text-teal-500 text-lg px-6 py-3 font-medium"].join(" ")} >Home</a></Link>
+                    <Link className={[linkCOlor, "text-white hover:text-teal-500 text-lg px-6 py-3 font-medium"].join(" ")} to="/" >Home</Link>
                 </li>
                 <li>
-                    <Link href="/" ><a className={[linkCOlor, "text-white hover:text-teal-500 text-lg px-6 py-3 font-medium"].join(" ")} >Pricing</a></Link>
+                    <Link className={[linkCOlor, "text-white hover:text-teal-500 text-lg px-6 py-3 font-medium"].join(" ")} to="/" >Pricing</Link>
                 </li>
                 <li>
-                    <Link href="/" ><a className={[linkCOlor, "text-white hover:text-teal-500 text-lg px-6 py-3 font-medium"].join(" ")} >Features</a></Link>
+                    <Link className={[linkCOlor, "text-white hover:text-teal-500 text-lg px-6 py-3 font-medium"].join(" ")} to="/" >Features</Link>
                 </li>
                 <li>
-                    <Link href="/" ><a className={[linkCOlor, "text-white hover:text-teal-500 text-lg px-6 py-3 font-medium"].join(" ")} >Story</a></Link>
+                    <Link className={[linkCOlor, "text-white hover:text-teal-500 text-lg px-6 py-3 font-medium"].join(" ")} to="/" >Story</Link>
                 </li>
                 <li>
-                    <a
+                    <Link
                         target="_blank"
                         rel="noopener noereferre"
-                        href={linkCTA}
+                        to={linkCTA}
                         className="bg-indigo-700 hover:bg-indigo-800 transition-all duration-200 text-white hover:text-teal-500 text-lg px-6 py-3 font-medium ml-6" >
                         {textCTA}
-                    </a>
+                    </Link>
                 </li>
             </ul>
         </header>

@@ -8,7 +8,6 @@ export default function Item({ name, id, child, active, toggle, children }) {
   const [Height, setHeight] = useState(() => 0);
 
   function calcHeight(e) {
-    console.log(e.offsetHeight);
     setHeight(e.offsetHeight);
   }
   return (

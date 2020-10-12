@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {Route, Redirect, withRouter} from 'react-router-dom'
 
 const GuestRoute = ({component: Component, location, ...rest}) => {
