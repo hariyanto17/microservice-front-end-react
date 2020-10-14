@@ -70,7 +70,7 @@ function RegisterForm({history}) {
                      placeholder="Your Password"
                      labelName="Password"
                     />
-                    <Select labelName="Occupation" name="profession" fallbackText="select your focus" onClick={setState} >
+                    <Select labelName="Occupation" value={profession} name="profession" fallbackText="select your focus" onClick={setState} >
                         <option value="">Select Your Focus</option>
                         <option value="Web Desainer">Web Desainer</option>
                         <option value="Frontend Developer">Frontend Developer</option>

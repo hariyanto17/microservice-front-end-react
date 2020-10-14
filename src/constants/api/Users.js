@@ -9,4 +9,6 @@ export default {
     }),
     
     details: () => axios.get("/users"),
+    update:(data) => axios.put("/users", data),
+    logout:() => axios.post("users/logout")
 };

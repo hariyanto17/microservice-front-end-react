@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, withRouter } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ReactComponent as DefaultUser } from "assets/images/default-avatar.svg";
+import Users from 'constants/api/Users'
 
 const Sidebar = ({match, history}) => {
 
@@ -12,8 +13,10 @@ const Sidebar = ({match, history}) => {
     const users = useSelector(state => state.users)
 
     const logout = () => {
-        localStorage.removeItem("MICRO:token")
-        history.push("/login")
+        Users.logout().then(res => {
+            localStorage.removeItem("MICRO:token")
+            history.push("/login")
+        })
     }
 
     return (
@@ -22,9 +25,9 @@ const Sidebar = ({match, history}) => {
                 <div className="flex flex-col text-center mt-8">
                     <div className="border border-indigo-500 mx-auto p-2 inline-flex rounded-full overflow-hidden">
                          {
-                             users?.avatar ? <img src={users?.avatar} alt={users?.name}/>
+                             users?.avatar ? <img className="object-cover rounded-full w-24 h-24" src={users?.avatar} alt={users?.name}/>
                              :
-                             <DefaultUser className="fill-teal-500" style={{ width: 90, height: 90}}/>
+                             <DefaultUser className="fill-teal-500 w-24 h-24" style={{ width: 90, height: 90}}/>
                          }
                     </div>
                     <h6 className="text-white text-xl">{users?.name ?? "User Name"}</h6>

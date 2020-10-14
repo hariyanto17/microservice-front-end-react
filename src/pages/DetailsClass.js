@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import YouTube from "react-youtube";
-import { useDispatch, useSelector, useStore } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { statusCourses, watchCourses, messageCourses } from "store/actions/courses";
 

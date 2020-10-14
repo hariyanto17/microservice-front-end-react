@@ -16,22 +16,22 @@ export default function Footer() {
           <h6 className="text-white">Company</h6>
           <ul className="mt-4">
             <li className="mt-2">
-              <Link className="text-indigo-500 hover:text-teal-500 hover:underline" href="">
+              <Link to="#" className="text-indigo-500 hover:text-teal-500 hover:underline">
                   API Developer
               </Link>
             </li>
             <li className="mt-2">
-              <Link className="text-indigo-500 hover:text-teal-500 hover:underline" href="">
+              <Link to="#" className="text-indigo-500 hover:text-teal-500 hover:underline">
                   Career
               </Link>
             </li>
             <li className="mt-2">
-              <Link className="text-indigo-500 hover:text-teal-500 hover:underline" href="">
+              <Link to="#" className="text-indigo-500 hover:text-teal-500 hover:underline">
                   Our Story
               </Link>
             </li>
             <li className="mt-2">
-              <Link className="text-indigo-500 hover:text-teal-500 hover:underline" href="">
+              <Link to="#" className="text-indigo-500 hover:text-teal-500 hover:underline">
                   New Soon
               </Link>
             </li>
@@ -41,22 +41,22 @@ export default function Footer() {
           <h6 className="text-white">Student</h6>
           <ul className="mt-4">
             <li className="mt-2">
-              <Link className="text-indigo-500 hover:text-teal-500 hover:underline" href="">
+              <Link to="#" className="text-indigo-500 hover:text-teal-500 hover:underline">
                   Get Scholarship
               </Link>
             </li>
             <li className="mt-2">
-              <Link className="text-indigo-500 hover:text-teal-500 hover:underline" href="">
+              <Link to="#" className="text-indigo-500 hover:text-teal-500 hover:underline">
                   Our Pathskills
               </Link>
             </li>
             <li className="mt-2">
-              <Link className="text-indigo-500 hover:text-teal-500 hover:underline" href="">
+              <Link to="#" className="text-indigo-500 hover:text-teal-500 hover:underline">
                   All Features
               </Link>
             </li>
             <li className="mt-2">
-              <Link className="text-indigo-500 hover:text-teal-500 hover:underline" href="">
+              <Link to="#" className="text-indigo-500 hover:text-teal-500 hover:underline">
                   Refund Policy
               </Link>
             </li>
