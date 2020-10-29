@@ -17,6 +17,8 @@ import MyClass from 'pages/MyClass';
 import Joined from 'pages/Joined';
 import DetailsClass from 'pages/DetailsClass';
 import Settings from 'pages/Settings';
+import Transactions from 'pages/Transactions';
+
 
 
 
@@ -51,6 +53,7 @@ function App() {
 
           <MemberRoute exact path="/" component={MyClass} />
           <MemberRoute  path="/settings" component={Settings} />
+          <MemberRoute  path="/transactions" component={Transactions} />
           <MemberRoute path="/joined/:class" component={Joined} />
           <MemberRoute path="/courses/:class/:chapter/:uid" component={DetailsClass} />
           <MemberRoute path="/courses/:class" component={DetailsClass} />

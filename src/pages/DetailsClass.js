@@ -47,9 +47,11 @@ const DetailsClass = ({match}) => {
         ) ?? currentChapter?.lessons?.[0]
     }
 
+
     const nextVideo = () => {
         
     }
+    console.log('cu', COURSES)
 
     return (
         <div className="flex">
